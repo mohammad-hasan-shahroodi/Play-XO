@@ -1,3 +1,4 @@
+A = [[0]*3 for i in range(3)]
 print("Hello! Welcome to Shahroodi's game!")
 print("it's version 2 of XO game")
 print("\n")
@@ -6,10 +7,10 @@ print("Rules: Player 1 and player 2, represented by X and O, take turns "
 print("\n")
 input("Press enter to continue.")
 print("\n")
-# Start code
-# ----------
-A = [[0]*3 for i in range(3)]
-
+def error1():
+    print("======= you shoud choose number between 1-9 , Your turn was lost for this carelessness =======")
+def error2():
+    print("======= you shoud choose number , Your turn was lost for this carelessness =======")
 def init_table(A):
     home = 1
     for i in range(3):
@@ -25,12 +26,15 @@ def print_table(A):
         print()
         print("+---+---+---+")
     print()
-
 def put_number(T,R):
     row = T // 3
-    column = T % 3
+    column = T % 3   
+    if A[row][column] == "X" or A[row][column] == "O":
+        print("⓿_⓿")
+        print("Don't cheat in the game , Your turn was lost for this carelessness")
+        print("⓿_⓿")
+        return False
     A[row][column] = R
-
 def Chek_win(R):
     for i in range(3):
         if A[i][0] == R and A[i][1] == R and A[i][2] == R:
@@ -42,20 +46,17 @@ def Chek_win(R):
     if A[0][2] == R and A[1][1] == R and A[2][0] == R:
         return True
     return False
-
 init_table(A)
 for move_number in range(9):
-
     if move_number % 2 == 0:
         print("=========== Player 1 turn =============") 
         print_table(A)
         x = input("choose a number: ")
-
         try:
             x = int(x)
         except:
             print()
-            print("======= you shoud choose number , Your turn was lost for this carelessness =======")
+            error2()
             print()
             continue       
         if 1<=x<=9 :
@@ -66,7 +67,7 @@ for move_number in range(9):
                 break           
         else:
             print()
-            print("======= you shoud choose number between 1-9 , Your turn was lost for this carelessness =======")
+            error1()
             print()
             continue          
     else:
@@ -77,7 +78,7 @@ for move_number in range(9):
             x = int(x)
         except:
             print()
-            print("======= you shoud choose number , Your turn was lost for this carelessness =======")
+            error2()
             print()
             continue       
         if 1<=x<=9 :
@@ -88,7 +89,7 @@ for move_number in range(9):
                 break           
         else:
             print()
-            print("======= you shoud choose number between 1-9 , Your turn was lost for this carelessness =======")
+            error1()
             print()
             continue     
 print("table is full")
