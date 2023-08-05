@@ -45,22 +45,50 @@ def Chek_win(R):
 
 init_table(A)
 for move_number in range(9):
+
     if move_number % 2 == 0:
         print("=========== Player 1 turn =============") 
         print_table(A)
-        x = int(input("choose a number: "))
-        put_number(x-1,"X")
-        if Chek_win("X"):
-            print_table(A)
-            print("=========== Player 1 is won! =============")
-            break
+        x = input("choose a number: ")
+
+        try:
+            x = int(x)
+        except:
+            print()
+            print("======= you shoud choose number , Your turn was lost for this carelessness =======")
+            print()
+            continue       
+        if 1<=x<=9 :
+            put_number(x-1,"X")
+            if Chek_win("X"):
+                print_table(A)
+                print("=========== Player 1 is won! =============")
+                break           
+        else:
+            print()
+            print("======= you shoud choose number between 1-9 , Your turn was lost for this carelessness =======")
+            print()
+            continue          
     else:
         print("=========== Player 2 turn =============") 
         print_table(A)
-        x = int(input("choose a number: "))
-        put_number(x-1,"O")
-        if Chek_win("X"):
-            print_table(A)
-            print("=========== Player 1 is won! =============")
-            break
-            
+        x = input("choose a number: ")
+        try:
+            x = int(x)
+        except:
+            print()
+            print("======= you shoud choose number , Your turn was lost for this carelessness =======")
+            print()
+            continue       
+        if 1<=x<=9 :
+            put_number(x-1,"O")
+            if Chek_win("O"):
+                print_table(A)
+                print("=========== Player 1 is won! =============")
+                break           
+        else:
+            print()
+            print("======= you shoud choose number between 1-9 , Your turn was lost for this carelessness =======")
+            print()
+            continue     
+print("table is full")
