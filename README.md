@@ -13,7 +13,8 @@ also in the game
 
 # XO - modern code :
 in this code you make table with tow functions and also I use for a different list:
-- tow functions : 
+###
+tow functions : 
 ```python
 def init_table(A):
     home = 1
