@@ -47,7 +47,7 @@ def Chek_win(R):
         return True
     return False
 init_table(A)
-for move_number in range(9):
+for move_number in range(10000000000000000000000000000):
     if move_number % 2 == 0:
         print("=========== Player 1 turn =============") 
         print_table(A)
