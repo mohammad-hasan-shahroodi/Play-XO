@@ -4,7 +4,7 @@
 
 Hello! Welcome to Shahroodi's game!
 it's version 2 of XO game
-Rules: Player 1 and player 2, represented by X and O, take turns marking the spaces in a 3*3 grid. The player who succeeds in placing
+Rules: Player 1 and player 2, represented by X and O, take turns marking the spaces in a 3*3 grid. 
 #
 also in the game 
 # If the opener enters letter or enters a number greater than 9 or less than 1, he loses his turn.
