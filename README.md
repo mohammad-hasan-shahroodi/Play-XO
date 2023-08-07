@@ -9,7 +9,7 @@ Rules: Player 1 and player 2, represented by X and O, take turns marking the spa
 also in the game 
 #### If the opener enters letter or enters a number greater than 9 or less than 1 or repeated number , The program finds out and asks them for a number again .
 
- ![image](https://github.com/mohammad-hasan-shahroodi/Play-XO/assets/140893151/91dd9e92-2e38-4506-9b67-dff4d4cc5f90)
+![image](https://github.com/mohammad-hasan-shahroodi/Play-XO/assets/140893151/c6676b84-246c-406d-a9d0-87fa8542e5a2)
 
 # XO - modern code :
 in this code you make table with tow functions and also I use for a different list:
