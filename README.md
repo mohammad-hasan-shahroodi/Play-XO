@@ -38,7 +38,6 @@ A = [[0]*3 for i in range(3)]
 ```
 - Sort the list :
 ```python
-```python
 def init_table(A):
     home = 1
     for i in range(3):
