@@ -13,6 +13,10 @@ def error2():
     print("⓿_⓿")
     print("Don't cheat in the game , try agian: ")
     print("⓿_⓿")
+def end():
+    print("table is full , Do you want to play agian ? yse or no (y/n): ")
+def end2():
+    print("Do you want to play agian ? yse or no (y/n): ")
 def init_table(A):
     home = 1
     for i in range(3):
@@ -54,73 +58,100 @@ def check_1_9(x):
     try:
         x = int(x)
     except:
-
         return False
     if not 1<=x<=9 :
-        return False    
-init_table(A)
-for move_number in range(9):
-    if move_number % 2 == 0:
-        print("=========== Player 1 turn =============") 
-        print_table(A)
-        x = input("choose a number: ")
-        while check_int(x) == False:
-            error1()
-            x = input("choose a number: ")
-            check_int(x) 
-        x = int(x)
-        while check_1_9(x) == False:
-            error1()
-            x = input("choose a number: ")
-            check_1_9(x)
-        x = int(x)
-        while put_number(x-1,"X") == False:
-            error2()
-            x = input("choose a number: ")
-            while check_1_9(x) == False:
-                error1()
-                x = input("choose a number: ")
-                check_1_9(x)
-            x = int(x)
-            put_number(x-1,"X")
-        row = (x-1) // 3
-        column = (x-1) % 3
-        A[row][column] = "X"
-        put_number(x-1,"X")
-        if Chek_win("X"):
-            print_table(A)
-            print("=========== Player 1 is won! =============")
-            exit()                    
-         
+        return False 
+def play_agian(y_n):
+    if y_n == "y" or y_n == "yes":
+        x = 1
+        return x
+    elif y_n == "n" or y_n == "no":
+        x = 0
+        return x
     else:
-        print("=========== Player 2 turn =============") 
-        print_table(A)
-        x = input("choose a number: ")
-        while check_int(x) == False:
-            error1()
+        x = 0
+        return x
+def full():
+    if type(A[0][0]) == type(A[0][1]) == type(A[0][2]) == type(A[1][0]) == type(A[1][1]) == type(A[1][2]) == type(A[2][0]) == type(A[2][1]) == type(A[2][2]) == str:
+        return True
+    else :
+        return False
+y_n = "y"
+while play_agian(y_n) == 1:
+    init_table(A)
+    for move_number in range(9):
+        if move_number % 2 == 0:
+            print("=========== Player 1 turn =============") 
+            print_table(A)
             x = input("choose a number: ")
-            check_int(x) 
-        x = int(x)
-        while check_1_9(x) == False:
-            error1()
-            x = input("choose a number: ")
-            check_1_9(x)
-        x = int(x)
-        while put_number(x-1,"O") == False:
-            error2()
-            x = input("choose a number: ")
+            while check_int(x) == False:
+                error1()
+                x = input("choose a number: ")
+                check_int(x) 
+            x = int(x)
             while check_1_9(x) == False:
                 error1()
                 x = input("choose a number: ")
                 check_1_9(x)
             x = int(x)
-            put_number(x-1,"O")
-        row = (x-1) // 3
-        column = (x-1) % 3
-        A[row][column] = "O"
-        put_number(x-1,"O")
-        if Chek_win("O"):
+            while put_number(x-1,"X") == False:
+                error2()
+                x = input("choose a number: ")
+                while check_1_9(x) == False:
+                    error1()
+                    x = input("choose a number: ")
+                    check_1_9(x)
+                x = int(x)
+                put_number(x-1,"X")
+            row = (x-1) // 3
+            column = (x-1) % 3
+            A[row][column] = "X"
+            put_number(x-1,"X")
+            if Chek_win("X"):
+                print_table(A)
+                print("=========== Player 1 is won! =============")
+                end2()
+                y_n = input()
+                break   
+            if full() == True:
+                end()      
+                y_n = input()
+                break                                           
+        else:
+            print("=========== Player 2 turn =============") 
             print_table(A)
-            print("=========== Player 2 is won! =============")
-            exit()  
-print("table is full")
+            x = input("choose a number: ")
+            while check_int(x) == False:
+                error1()
+                x = input("choose a number: ")
+                check_int(x) 
+            x = int(x)
+            while check_1_9(x) == False:
+                error1()
+                x = input("choose a number: ")
+                check_1_9(x)
+            x = int(x)
+            while put_number(x-1,"O") == False:
+                error2()
+                x = input("choose a number: ")
+                while check_1_9(x) == False:
+                    error1()
+                    x = input("choose a number: ")
+                    check_1_9(x)
+                x = int(x)
+                put_number(x-1,"O")
+            row = (x-1) // 3
+            column = (x-1) % 3
+            A[row][column] = "O"
+            put_number(x-1,"O")
+            if Chek_win("O"):
+                print_table(A)
+                print("=========== Player 2 is won! =============")
+                end2()
+                y_n = input()
+                break  
+            if full() == True:
+                end()    
+                y_n = input()
+                break  
+print("Have good day")
