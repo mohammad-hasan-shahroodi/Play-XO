@@ -154,4 +154,4 @@ while play_agian(y_n) == 1:
                 end()    
                 y_n = input()
                 break  
-print("Have good day")
+print("Have good day , by by ....")
